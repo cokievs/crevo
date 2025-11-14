@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CREVO — Creative Evolution (SMA Negeri 1 Wonosobo)</title>
+  <style>
+    :root{
+      --bg:#f3f9ff; --card:#ffffff; --muted:#65748b; --text:#07243b;
+      --blue-600:#1e90ff; --blue-700:#0b73d9; --accent:#2b8aef; --glass:rgba(255,255,255,0.6);
+      --success:#25D366;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;background:linear-gradient(180deg,#eef9ff,#f3f9ff);color:var(--text);-webkit-font-smoothing:antialiased}
+    header{background:linear-gradient(90deg,var(--blue-700),var(--blue-600));color:#fff;padding:20px 18px;box-shadow:0 8px 30px rgba(8,30,64,0.12);position:sticky;top:0;z-index:50}
+    .header-inner{max-width:1100px;margin:auto;display:flex;align-items:center;gap:14px}
+    .logo {display:flex;gap:12px;align-items:center}
+    .logo .icon{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,#fff2, #ffffff11);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(11,35,84,0.12)}
+    .logo h1{font-size:18px;margin:0;letter-spacing:0.2px}
+    nav{display:flex;gap:8px;margin-left:auto}
+    nav a{color:#fff;text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;opacity:0.95;display:flex;gap:8px;align-items:center}
+    nav a svg{opacity:0.95}
+    nav a.active{background:rgba(255,255,255,0.12)}
+    main{max-width:1100px;margin:22px auto;padding:0 16px}
+    .card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:0 12px 30px rgba(11,35,84,0.04)}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:center}
+    h2{color:var(--blue-700);margin:0 0 8px 0}
+    p.lead{color:var(--muted);line-height:1.6}
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{background:var(--accent);color:#fff;padding:10px 12px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+    .ghost{background:transparent;border:1px solid rgba(11,35,84,0.06);color:var(--blue-700);padding:8px 10px;border-radius:10px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+    .produk{border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+    .produk .imgwrap{height:160px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#f6fbff,#eef6ff);display:flex;align-items:center;justify-content:center}
+    .produk img{width:100%;height:100%;object-fit:cover}
+    .price{font-weight:800;color:#d32f2f}
+    .small{font-size:13px;color:var(--muted)}
+    .wa-btn{display:inline-flex;gap:8px;align-items:center;background:var(--success);color:#fff;padding:8px 10px;border-radius:10px;text-decoration:none;font-weight:700}
+    footer{padding:18px;text-align:center;color:#fff;background:linear-gradient(90deg,var(--blue-700),var(--blue-600));margin-top:30px;border-radius:10px}
+    .kpi{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:12px}
+    .kpi .item{background:linear-gradient(180deg,#fff,#f7fbff);padding:12px;border-radius:10px;flex:1;display:flex;gap:10px;align-items:center;box-shadow:0 8px 18px rgba(11,35,84,0.03)}
+    .icon-circle{width:48px;height:48px;border-radius:10px;background:linear-gradient(90deg,var(--blue-600),var(--blue-700));display:flex;align-items:center;justify-content:center;color:#fff}
+    .modal{position:fixed;inset:0;background:rgba(5,12,32,0.5);display:none;align-items:center;justify-content:center;padding:18px;z-index:80}
+    .panel{background:var(--card);width:100%;max-width:920px;border-radius:12px;padding:16px;max-height:92vh;overflow:auto}
+    .topbar{display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+    input[type=search], select, input, textarea{padding:10px;border-radius:10px;border:1px solid #edf5ff;min-width:0}
+    textarea{min-height:100px}
+    @media(max-width:980px){ .hero{grid-template-columns:1fr} nav{overflow:auto;padding-bottom:6px} .logo h1{font-size:16px} }
+    @media(max-width:560px){ .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))} .produk .imgwrap{height:120px} }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="icon" aria-hidden="true">
+        <!-- lamp icon -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 21h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 3a5 5 0 0 0-5 5c0 2.5 1.9 4.3 3 5 1.1.7 2 1 2 3h2c0-2 0.9-2.3 2-3 1.1-.7 3-2.5 3-5a5 5 0 0 0-5-5H12z" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </div>
+      <div>
+        <h1>CREVO</h1>
+        <div style="font-size:12px;color:rgba(255,255,255,0.9)">Creative Evolution • SMA N 1 Wonosobo</div>
+      </div>
+    </div>
+
+    <nav id="mainNav" style="margin-left:auto">
+      <a href="#beranda" class="active" onclick="navigate(event,'beranda')">
+        <!-- home icon -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 11.5L12 4l9 7.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Beranda
+      </a>
+      <a href="#latar" onclick="navigate(event,'latar')">
+        <!-- book icon -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 6h13v13H3z" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Latar
+      </a>
+      <a href="#tentang" onclick="navigate(event,'tentang')">
+        <!-- users icon -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 8v.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Tentang
+      </a>
+      <a href="#etalase" onclick="navigate(event,'etalase')">
+        <!-- shop icon -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 9h18" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 9v11h14V9" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 9V6a5 5 0 0 1 10 0v3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Etalase
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div style="max-width:1100px;margin:22px auto;padding:0 16px">
+
+    <!-- BERANDA -->
+    <section id="beranda" class="card" style="margin-bottom:18px">
+      <div class="hero">
+        <div>
+          <h2>Selamat datang di CREVO</h2>
+          <p class="lead">CREVO (Creative Evolution) — etalase digital hasil karya siswa <strong>Kelas 12-I</strong> SMA Negeri 1 Wonosobo. Kami menampilkan produk kreatif siswa seperti makanan, minuman, kerajinan, dan aksesori. Dengan CREVO, peserta didik mendapatkan pengalaman nyata memasarkan produk secara digital dan menjangkau pembeli lebih luas.</p>
+
+          <div class="cta-row">
+            <button class="btn" onclick="navigateById('etalase')">Lihat Etalase</button>
+            <button class="btn" onclick="openProductForm()">Tambah Produk</button>
+            <button class="ghost" onclick="openAdmin()">Dashboard Guru</button>
+          </div>
+
+          <div class="kpi">
+            <div class="item" style="flex:1">
+              <div class="icon-circle" aria-hidden="true">
+                <!-- spark icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v6" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M12 22v-6" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M2 12h6" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/><path d="M22 12h-6" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <div style="font-weight:700">Wadah Kreativitas</div>
+                <div class="small">Menampilkan karya siswa secara profesional</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="icon-circle">
+                <!-- chat icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <div style="font-weight:700">Transaksi Cepat</div>
+                <div class="small">Hubungi penjual langsung via WhatsApp</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="icon-circle">
+                <!-- learn icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 7l-5 3v5l5 3 5-3V10l-5-3z" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <div style="font-weight:700">Pembelajaran</div>
+                <div class="small">Praktik pemasaran & manajemen produk</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <aside style="width:360px">
+          <div class="card" style="text-align:center">
+            <div style="font-weight:800;color:var(--blue-700);margin-bottom:8px">CREVO — Sekilas</div>
+            <p class="small" style="margin:0 0 12px">Platform ini dibuat oleh siswa sebagai langkah mengembangkan kreativitas dan kemandirian ekonomi melalui praktik wirausaha digital.</p>
+            <img src="" alt="" style="width:100%;height:140px;object-fit:cover;border-radius:10px;background:linear-gradient(180deg,#eef8ff,#f6fbff)"/>
+            <div style="margin-top:12px;text-align:left">
+              <strong>Fitur:</strong>
+              <ul class="small muted">
+                <li>Katalog & filter</li>
+                <li>Detail produk & kontak WA</li>
+                <li>Form input & dashboard guru</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- LATAR BELAKANG -->
+    <section id="latar" class="card" style="margin-bottom:18px;display:none">
+      <h2>Latar Belakang</h2>
+      <p class="small muted" style="text-align:justify;line-height:1.7">
+        Kewirausahaan merupakan salah satu kompetensi utama dalam pendidikan abad ke-21 yang mendorong pengembangan karakter siswa agar menjadi pribadi yang kreatif, inovatif, mandiri, dan adaptif terhadap perubahan zaman. Dalam konteks pendidikan menengah, khususnya di SMA, penguatan nilai-nilai kewirausahaan tidak hanya penting untuk mendukung kemandirian ekonomi di masa depan, tetapi juga sebagai sarana untuk menanamkan tanggung jawab, keberanian mengambil risiko, serta kemampuan berinovasi sejak dini.
+      </p>
+      <p class="small muted" style="text-align:justify;line-height:1.7">
+        Di SMA Negeri 1 Wonosobo, semangat kewirausahaan mulai tumbuh secara positif. Banyak siswa yang telah berhasil menciptakan berbagai produk seperti makanan ringan, minuman herbal, kerajinan tangan, produk kreatif berbasis daur ulang, hingga aksesoris handmade. Produk-produk ini merupakan hasil dari pembelajaran di kelas, program ekstrakurikuler, maupun inisiatif pribadi siswa. Hal ini menunjukkan potensi besar yang dimiliki siswa dalam bidang kewirausahaan.
+      </p>
+      <p class="small muted" style="text-align:justify;line-height:1.7">
+        Namun, meskipun potensi dan kreativitas siswa cukup tinggi, masih terdapat berbagai tantangan yang menghambat optimalisasi pemasaran dan pengembangan produk mereka. Salah satu kendala utama adalah belum tersedianya wadah digital yang terpusat dan menarik untuk menampilkan serta mempromosikan produk-produk buatan siswa. Selama ini, promosi produk hanya dilakukan secara offline melalui bazar sekolah, penitipan di kantin, atau penjualan dari mulut ke mulut. Akibatnya, banyak produk yang belum dikenal secara luas, bahkan oleh warga sekolah sendiri.
+      </p>
+      <p class="small muted" style="text-align:justify;line-height:1.7">
+        Di tengah kemajuan teknologi digital, penting bagi institusi pendidikan untuk turut memfasilitasi pemanfaatan teknologi informasi dalam pengembangan jiwa kewirausahaan siswa. Siswa perlu diberi ruang untuk mengalami secara langsung proses pemasaran dan transaksi digital, sebagaimana praktik wirausaha di dunia nyata yang kini banyak mengandalkan platform online untuk menjangkau konsumen.
+      </p>
+      <p class="small muted" style="text-align:justify;line-height:1.7">
+        Menjawab tantangan tersebut, hadirlah <strong>CREVO — Creative Evolution</strong>, sebuah platform web digital kewirausahaan yang dirancang khusus untuk siswa SMA Negeri 1 Wonosobo. CREVO hadir sebagai solusi inovatif yang memberikan etalase digital bagi produk-produk karya siswa. Melalui platform ini, siswa dapat menampilkan produk mereka secara lebih profesional, menjangkau pembeli di dalam maupun di luar sekolah, serta mempelajari praktik wirausaha modern secara langsung.
+      </p>
+    </section>
+
+    <!-- TENTANG KAMI -->
+    <section id="tentang" class="card" style="margin-bottom:18px;display:none">
+      <h2>Tentang Kami</h2>
+      <p class="small muted">Kelompok pengembang CREVO — siswa Kelas 12-I SMA Negeri 1 Wonosobo:</p>
+      <ul class="small muted" style="line-height:1.8">
+        <li>Anggraini Nura Askhiya</li>
+        <li>Dinar Fadhillah</li>
+        <li>Gerarda Lovariksa Gresia</li>
+        <li>Nadia Camilla Rafidah</li>
+        <li>Salma Noor Faiza</li>
+        <li>Sofi Nurhidayah</li>
+      </ul>
+    </section>
+
+    <!-- ETALASE -->
+    <section id="etalase" class="card" style="display:none">
+      <h2>Etalase Produk</h2>
+
+      <div class="topbar" style="margin-top:8px">
+        <div style="flex:1;display:flex;gap:8px">
+          <input id="q" type="search" placeholder="Cari produk... (nama / kategori)" oninput="renderCatalog()" style="flex:1">
+          <select id="categoryFilter" onchange="renderCatalog()">
+            <option value="all">Semua Kategori</option>
+          </select>
+          <button class="btn" onclick="resetFilters()">Reset</button>
+        </div>
+
+        <div style="display:flex;gap:8px;align-items:center">
+          <label class="small muted">Urut:</label>
+          <select id="sort" onchange="renderCatalog()" class="small">
+            <option value="newest">Terbaru</option>
+            <option value="price-asc">Harga: Rendah → Tinggi</option>
+            <option value="price-desc">Harga: Tinggi → Rendah</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="catalog" class="grid" style="margin-top:14px"></div>
+    </section>
+
+  </div>
+</main>
+
+<!-- modal -->
+<div id="modal" class="modal" onclick="if(event.target===this) closeModal()">
+  <div class="panel" id="modalContent" role="dialog" aria-modal="true"></div>
+</div>
+
+<footer>
+  <div style="max-width:1100px;margin:auto;padding:6px 16px;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px">
+    <div>CREVO • SMA Negeri 1 Wonosobo • © 2025</div>
+    <div class="small">Dikembangkan oleh Kelas 12-I</div>
+  </div>
+</footer>
+
+<script>
+/* --------------------------
+   Data & storage (localStorage)
+   -------------------------- */
+const ADMIN_PASSWORD = 'guru123';
+const LS_PRODUCTS = 'crevo_prod_v2';
+const LS_SELLERS = 'crevo_sellers_v2';
+const LS_SALES = 'crevo_sales_v2';
+
+/* sellers (saved in localStorage once) */
+let sellers = JSON.parse(localStorage.getItem(LS_SELLERS) || 'null');
+if(!sellers){
+  sellers = {
+    luna: { id:'luna', name:'Luna', phone:'6288233962509', bio:'Aksesoris & kerajinan' },
+    tasya: { id:'tasya', name:'Tasya', phone:'62895421877030', bio:'Jajanan & kue' },
+    jessy: { id:'jessy', name:'Jessy', phone:'62895807218600', bio:'Dimsum' },
+    gerarda: { id:'gerarda', name:'Gerarda', phone:'6287777262779', bio:'Infused water' },
+    sekar: { id:'sekar', name:'Sekar', phone:'6282226342343', bio:'Salad buah' },
+    shela: { id:'shela', name:'Shela', phone:'6285786820227', bio:'Cireng & jelly' },
+    nala: { id:'nala', name:'Nala', phone:'62895327152612', bio:'Ganci foto' },
+    nadin: { id:'nadin', name:'Nadin', phone:'6289526938650', bio:'Cookies mini' }
+  };
+  localStorage.setItem(LS_SELLERS, JSON.stringify(sellers));
+}
+
+/* seed products if none */
+let products = JSON.parse(localStorage.getItem(LS_PRODUCTS) || 'null');
+if(!products){
+  products = [
+    { id:'b-daisy', title:'B-Daisy (Gelang Daisy)', category:'Aksesoris', price:5000, stock:60, sellerId:'luna', img:'daisy.jpeg', desc:'Gelang bunga daisy, cocok untuk gaya harian.', status:'approved', created:Date.now()-120000 },
+    { id:'f-guitar', title:'F-Guitar (Keychain)', category:'Aksesoris', price:20000, stock:20, sellerId:'luna', img:'/mnt/data/WhatsApp Image 2025-11-13 at 14.36.12 (1).jpeg', desc:'Gantungan kunci gitar handmade.', status:'approved', created:Date.now()-110000 },
+    { id:'f-cat', title:'F-Cat (Keychain)', category:'Aksesoris', price:20000, stock:15, sellerId:'luna', img:'/mnt/data/WhatsApp Image 2025-11-13 at 14.36.12 (2).jpeg', desc:'Gantungan kunci kucing lucu.', status:'approved', created:Date.now()-100000 },
+    { id:'c-ribbon', title:'C-Ribbon (Gelang Pita)', category:'Aksesoris', price:10000, stock:30, sellerId:'luna', img:'/mnt/data/WhatsApp Image 2025-11-13 at 14.36.12 (3).jpeg', desc:'Gelang pita elegan.', status:'approved', created:Date.now()-90000 },
+    { id:'b-fruit', title:'B-Fruit Blueberry (Gelang)', category:'Aksesoris', price:5000, stock:50, sellerId:'luna', img:'/mnt/data/WhatsApp Image 2025-11-13 at 14.36.13.jpeg', desc:'Gelang motif blueberry.', status:'approved', created:Date.now()-80000 },
+
+    { id:'tasya-cookies', title:'Cookies Homemade (Tasya)', category:'Makanan', price:7000, stock:40, sellerId:'tasya', img:'/mnt/data/tasya cookies.jpeg', desc:'Cookies lembut berbagai varian.', status:'approved', created:Date.now()-70000 },
+    { id:'tasya-brownies', title:'Brownies Coklat (Tasya)', category:'Makanan', price:15000, stock:25, sellerId:'tasya', img:'tasya brownies.jpeg', desc:'Brownies coklat moist.', status:'approved', created:Date.now()-69000 },
+
+    { id:'jessy-bolognese', title:'Dimsum Bolognese (Jessy)', category:'Makanan', price:13000, stock:30, sellerId:'jessy', img:'', desc:'Dimsum isi bolognese, gurih.', status:'approved', created:Date.now()-68000 },
+    { id:'jessy-mentai', title:'Dimsum Mentai (Jessy)', category:'Makanan', price:12000, stock:30, sellerId:'jessy', img:'', desc:'Dimsum isi saus mentai.', status:'approved', created:Date.now()-67000 },
+
+    { id:'gerarda-infused-tea', title:'Infused Water Tea (Gerarda)', category:'Minuman', price:15000, stock:40, sellerId:'gerarda', img:'', desc:'Infused water rasa teh.', status:'approved', created:Date.now()-66000},
+    { id:'gerarda-infused', title:'Infused Water Biasa (Gerarda)', category:'Minuman', price:10000, stock:50, sellerId:'gerarda', img:'', desc:'Infused water buah segar.', status:'approved', created:Date.now()-65000},
+
+    { id:'sekar-salad', title:'Salad Buah (Sekar)', category:'Makanan', price:10000, stock:30, sellerId:'sekar', img:'', desc:'Salad buah segar.', status:'approved', created:Date.now()-64000},
+
+    { id:'shela-cireng', title:'Cireng Keju (Shela)', category:'Makanan', price:8000, stock:40, sellerId:'shela', img:'', desc:'Cireng isi keju.', status:'approved', created:Date.now()-63000},
+    { id:'shela-jelly', title:'Jelly Manggo (Shela)', category:'Makanan', price:3000, stock:80, sellerId:'shela', img:'', desc:'Jelly mangga manis.', status:'approved', created:Date.now()-62000},
+
+    { id:'nala-ganci-1', title:'Ganci Foto (tanpa tali) (Nala)', category:'Aksesoris', price:7000, stock:40, sellerId:'nala', img:'', desc:'Gantungan foto mini tanpa tali.', status:'approved', created:Date.now()-61000},
+    { id:'nala-ganci-2', title:'Ganci Foto + Tali (Nala)', category:'Aksesoris', price:10000, stock:30, sellerId:'nala', img:'', desc:'Gantungan foto lengkap.', status:'approved', created:Date.now()-60000},
+
+    { id:'nadin-cookies', title:'Cookies Mini (Nadin)', category:'Makanan', price:4000, stock:60, sellerId:'nadin', img:'nadin cookies.jpeg', desc:'Cookies ukuran kecil.', status:'approved', created:Date.now()-59000}
+  ];
+  localStorage.setItem(LS_PRODUCTS, JSON.stringify(products));
+}
+
+/* sales */
+let sales = JSON.parse(localStorage.getItem(LS_SALES) || 'null');
+if(!sales){ sales = []; localStorage.setItem(LS_SALES, JSON.stringify(sales)); }
+
+function saveAll(){ localStorage.setItem(LS_PRODUCTS, JSON.stringify(products)); localStorage.setItem(LS_SELLERS, JSON.stringify(sellers)); localStorage.setItem(LS_SALES, JSON.stringify(sales)); }
+
+/* helpers */
+const placeholderSVG = `data:image/svg+xml;utf8,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400"><rect width="100%" height="100%" fill="%23eef8ff"/><g fill="%2390a4c0"><rect x="110" y="70" width="380" height="260" rx="12" /></g><text x="50%" y="52%" alignment-baseline="middle" text-anchor="middle" fill="%2390a4c0" font-size="20">No Image</text></svg>')}`;
+
+function numberWithDots(x){ return String(x).replace(/\B(?=(\d{3})+(?!\d))/g,'.'); }
+
+function waLink(phone){
+  if(!phone) return '#';
+  let digs = String(phone).replace(/\D/g,'');
+  if(digs.startsWith('0')) digs = '62' + digs.slice(1);
+  if(!digs.startsWith('62')) digs = '62' + digs;
+  return 'https://wa.me/' + digs;
+}
+
+/* Navigation SPA */
+function navigate(e,id){
+  e.preventDefault();
+  navigateById(id);
+}
+function navigateById(id){
+  ['beranda','latar','tentang','etalase'].forEach(x=>{
+    const el = document.getElementById(x);
+    if(el) el.style.display = (x===id) ? 'block' : 'none';
+  });
+  document.querySelectorAll('#mainNav a').forEach(a=>a.classList.remove('active'));
+  const link = Array.from(document.querySelectorAll('#mainNav a')).find(a=>a.getAttribute('href')===('#'+id));
+  if(link) link.classList.add('active');
+  if(id==='etalase'){ populateCategories(); renderCatalog(); }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* init: show beranda */
+navigateById('beranda');
+
+/* populate categories dropdown */
+function populateCategories(){
+  const sel = document.getElementById('categoryFilter');
+  sel.innerHTML = '<option value="all">Semua Kategori</option>';
+  const cats = Array.from(new Set(products.map(p=>p.category)));
+  cats.forEach(c=>{
+    const o = document.createElement('option'); o.value = c; o.textContent = c; sel.appendChild(o);
+  });
+}
+
+/* render catalog */
+function renderCatalog(){
+  const q = (document.getElementById('q').value || '').trim().toLowerCase();
+  const cat = document.getElementById('categoryFilter').value;
+  const sort = document.getElementById('sort').value;
+  let list = products.filter(p=>p.status==='approved');
+  if(cat !== 'all') list = list.filter(p=>p.category===cat);
+  if(q) list = list.filter(p=>(p.title||'').toLowerCase().includes(q) || (p.desc||'').toLowerCase().includes(q) || (p.category||'').toLowerCase().includes(q));
+  if(sort==='price-asc') list.sort((a,b)=>a.price-b.price);
+  else if(sort==='price-desc') list.sort((a,b)=>b.price-a.price);
+  else list.sort((a,b)=>b.created - a.created);
+
+  const out = document.getElementById('catalog'); out.innerHTML='';
+  if(list.length===0){ out.innerHTML = '<div style="grid-column:1/-1;padding:20px;border-radius:10px;background:#fff;text-align:center">Tidak ada produk.</div>'; return; }
+
+  list.forEach(p=>{
+    const s = sellers[p.sellerId] || {name:'Penjual', phone:''};
+    const card = document.createElement('article'); card.className='produk card';
+    const imgWrap = document.createElement('div'); imgWrap.className='imgwrap';
+    const img = document.createElement('img'); img.src = p.img && p.img.trim() ? p.img : placeholderSVG; img.alt = p.title;
+    imgWrap.appendChild(img);
+    const title = document.createElement('div'); title.style.fontWeight='800'; title.textContent = p.title;
+    const desc = document.createElement('div'); desc.className='small'; desc.textContent = p.desc;
+    const price = document.createElement('div'); price.className='price'; price.textContent = 'Rp ' + numberWithDots(p.price);
+    const sellerLine = document.createElement('div'); sellerLine.className='small'; sellerLine.textContent = 'Penjual: ' + (s.name || '-');
+    const controls = document.createElement('div'); controls.style.display='flex'; controls.style.gap='8px'; controls.style.marginTop='8px';
+
+    const wa = document.createElement('a'); wa.className='wa-btn'; wa.href = waLink(s.phone); wa.target='_blank'; wa.innerHTML = '<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" style=\"margin-right:6px\"><path d=\"M21 11.5a8.38 8.38 0 0 1-1.8 5.2l.02.02-1.99 4.1-4.05-1.27A8.65 8.65 0 1 1 21 11.5z\" stroke=\"#fff\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>Hubungi</a>';
+    const infoBtn = document.createElement('button'); infoBtn.className='ghost'; infoBtn.textContent='Detail'; infoBtn.onclick = ()=>openDetail(p.id);
+
+    controls.appendChild(wa); controls.appendChild(infoBtn);
+    card.appendChild(imgWrap); card.appendChild(title); card.appendChild(desc); card.appendChild(price); card.appendChild(sellerLine); card.appendChild(controls);
+    out.appendChild(card);
+  });
+}
+
+/* open detail modal */
+function openDetail(id){
+  const p = products.find(x=>x.id===id);
+  if(!p) return alert('Produk tidak ditemukan');
+  const s = sellers[p.sellerId] || {name:'Penjual', phone:''};
+  const html = `
+    <div style="display:flex;gap:14px;flex-direction:column">
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px">
+          <img src="${p.img && p.img.trim() ? p.img : placeholderSVG}" alt="${p.title}" style="width:100%;height:360px;object-fit:cover;border-radius:10px"/>
+        </div>
+        <div style="flex:1;min-width:260px">
+          <h2 style="margin:0 0 8px 0">${escape(p.title)}</h2>
+          <p class="small muted">${escape(p.desc)}</p>
+          <p style="font-weight:800;font-size:18px;color:#c62828">Rp ${numberWithDots(p.price)}</p>
+          <p class="small muted">Stok: <strong>${p.stock}</strong></p>
+          <p class="small muted">Kategori: <strong>${escape(p.category)}</strong></p>
+          <p class="small muted">Penjual: <strong>${escape(s.name)}</strong></p>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <a class="wa-btn" href="${waLink(s.phone)}" target="_blank">Hubungi via WhatsApp</a>
+            <button class="btn" onclick="recordSale('${p.id}')">Catat Terjual</button>
+            <button class="ghost" onclick="closeModal()">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  openModal(html);
+}
+
+/* modal helpers */
+function openModal(html){ document.getElementById('modalContent').innerHTML = html; document.getElementById('modal').style.display = 'flex'; }
+function closeModal(){ document.getElementById('modal').style.display = 'none'; document.getElementById('modalContent').innerHTML = ''; }
+
+/* escape */
+function escape(s){ return String(s||'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+/* reset filters */
+function resetFilters(){ document.getElementById('q').value=''; document.getElementById('categoryFilter').value='all'; document.getElementById('sort').value='newest'; renderCatalog(); }
+
+/* open product form for siswa */
+function openProductForm(editId){
+  const editing = editId ? products.find(p=>p.id===editId) : null;
+  const sellerOptions = Object.values(sellers).map(s=>`<option value="${s.id}" ${editing && editing.sellerId===s.id?'selected':''}>${escape(s.name)} — ${escape(s.phone)}</option>`).join('');
+  const html = `
+    <h2 style="margin-top:0">${editing ? 'Edit Produk' : 'Form Input Produk (Siswa)'}</h2>
+    <form id="prodForm">
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <div style="flex:1;min-width:180px">
+          <label>Nama Produk</label>
+          <input name="title" required value="${editing?escape(editing.title):''}" style="width:100%">
+        </div>
+        <div style="flex:1;min-width:160px">
+          <label>Kategori</label>
+          <input name="category" required placeholder="Makanan / Minuman / Kerajinan / Aksesoris" value="${editing?escape(editing.category):''}" style="width:100%">
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;margin-top:10px">
+        <div style="flex:1">
+          <label>Harga (Rp)</label>
+          <input name="price" type="number" required value="${editing?editing.price:10000}" style="width:100%">
+        </div>
+        <div style="flex:1">
+          <label>Stok</label>
+          <input name="stock" type="number" required value="${editing?editing.stock:10}" style="width:100%">
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        <label>Deskripsi</label>
+        <textarea name="desc">${editing?escape(editing.desc):''}</textarea>
+      </div>
+      <div style="margin-top:10px">
+        <label>Foto Produk (opsional)</label>
+        <input type="file" name="image" accept="image/*" />
+        <div class="small muted" style="margin-top:6px">Gambar yang diunggah akan disimpan ke localStorage (data URL).</div>
+      </div>
+      <div style="margin-top:10px">
+        <label>Penjual</label>
+        <select name="sellerId" style="width:100%">${sellerOptions}</select>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:8px">
+        <button class="btn" type="submit">${editing?'Simpan Perubahan':'Kirim untuk Validasi'}</button>
+        <button type="button" class="ghost" onclick="closeModal()">Batal</button>
+      </div>
+    </form>
+  `;
+  openModal(html);
+
+  document.getElementById('prodForm').addEventListener('submit', async function(ev){
+    ev.preventDefault();
+    const fd = new FormData(ev.currentTarget);
+    let imageData = '';
+    const file = fd.get('image');
+    if(file && file.size>0){ imageData = await readFileAsDataURL(file); }
+    const payload = {
+      id: editing ? editing.id : 'p'+Math.random().toString(36).slice(2,9),
+      title: fd.get('title'),
+      category: fd.get('category'),
+      price: Number(fd.get('price')) || 0,
+      stock: Number(fd.get('stock')) || 0,
+      desc: fd.get('desc'),
+      img: imageData || (editing ? editing.img : ''),
+      sellerId: fd.get('sellerId'),
+      status: editing ? editing.status : 'pending',
+      created: Date.now()
+    };
+    if(editing){
+      const idx = products.findIndex(x=>x.id===editing.id); products[idx] = payload;
+      alert('Perubahan tersimpan. Jika perlu validasi ulang, minta guru memeriksa.');
+    } else {
+      products.push(payload);
+      alert('Produk dikirim untuk validasi oleh guru (status: pending).');
+    }
+    saveAll(); closeModal(); populateCategories(); renderCatalog();
+  });
+}
+
+/* read file as data url */
+function readFileAsDataURL(file){ return new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.onerror=rej; r.readAsDataURL(file); }); }
+
+/* admin dashboard */
+function openAdmin(){
+  const pw = prompt('Masukkan kata sandi Guru Pembina:');
+  if(pw !== ADMIN_PASSWORD) return alert('Kata sandi salah.');
+  const html = `
+    <h2>Dashboard Admin — Guru Pembina</h2>
+    <p class="small muted">Validasi produk, edit, hapus, dan monitoring penjualan.</p>
+    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+      <div style="flex:1;min-width:360px">
+        <h3>Daftar Produk</h3>
+        <div id="adminProductList" style="max-height:380px;overflow:auto"></div>
+      </div>
+      <div style="width:320px">
+        <h3>Statistik</h3>
+        <div id="adminStats" class="small muted"></div>
+      </div>
+    </div>
+    <div style="margin-top:12px;text-align:right"><button class="btn" onclick="closeModal()">Tutup</button></div>
+  `;
+  openModal(html);
+  renderAdminProducts(); renderAdminStats();
+}
+
+function renderAdminProducts(){
+  const out = document.getElementById('adminProductList'); out.innerHTML='';
+  products.slice().reverse().forEach(p=>{
+    const s = sellers[p.sellerId] || {name:'Penjual'};
+    const row = document.createElement('div'); row.style.padding='10px'; row.style.borderBottom='1px solid #f1f5f9';
+    row.innerHTML = `<strong>${escape(p.title)}</strong> <div class="small muted">${escape(p.category)} • Rp ${numberWithDots(p.price)} • Stok: ${p.stock} • Status: ${p.status}</div>`;
+    const actions = document.createElement('div'); actions.style.display='flex'; actions.style.gap='8px'; actions.style.marginTop='8px';
+    const approveBtn = document.createElement('button'); approveBtn.textContent = p.status==='approved' ? 'Approved' : 'Validasi'; approveBtn.disabled = p.status==='approved'; approveBtn.onclick = ()=>{ p.status='approved'; saveAll(); renderAdminProducts(); renderCatalog(); populateCategories(); renderAdminStats(); };
+    const editBtn = document.createElement('button'); editBtn.textContent='Edit'; editBtn.onclick = ()=>{ closeModal(); openProductForm(p.id); };
+    const delBtn = document.createElement('button'); delBtn.textContent='Hapus'; delBtn.onclick = ()=>{ if(confirm('Hapus produk?')){ products = products.filter(x=>x.id!==p.id); saveAll(); renderAdminProducts(); renderCatalog(); populateCategories(); renderAdminStats(); } };
+    const markSale = document.createElement('button'); markSale.textContent='Catat Terjual'; markSale.onclick = ()=>{ const qty = Number(prompt('Jumlah terjual?',1)); if(!qty || qty<=0) return; if(p.stock < qty) return alert('Stok tidak mencukupi'); p.stock -= qty; sales.push({id:'s'+Math.random().toString(36).slice(2,8), productId:p.id, qty:qty, price:p.price, at:Date.now()}); saveAll(); renderAdminProducts(); renderAdminStats(); renderCatalog(); };
+    actions.appendChild(approveBtn); actions.appendChild(editBtn); actions.appendChild(delBtn); actions.appendChild(markSale);
+    row.appendChild(actions); out.appendChild(row);
+  });
+}
+
+function renderAdminStats(){
+  const out = document.getElementById('adminStats'); out.innerHTML='';
+  const totalProducts = products.length;
+  const pending = products.filter(p=>p.status==='pending').length;
+  const totalSales = sales.reduce((s,x)=>s+x.qty,0);
+  const revenue = sales.reduce((s,x)=>s + x.qty * x.price,0);
+  out.innerHTML = `<div class="small muted">Total Produk: <strong>${totalProducts}</strong></div>
+  <div class="small muted">Pending: <strong>${pending}</strong></div>
+  <div class="small muted">Total Terjual: <strong>${totalSales}</strong></div>
+  <div class="small muted">Pendapatan tercatat: <strong>Rp ${numberWithDots(revenue)}</strong></div>`;
+  const soldCount = {}; sales.forEach(s=> soldCount[s.productId] = (soldCount[s.productId]||0) + s.qty);
+  const top = Object.keys(soldCount).sort((a,b)=>soldCount[b]-soldCount[a]).slice(0,5);
+  out.innerHTML += '<hr>';
+  if(top.length===0) out.innerHTML += '<div class="small muted">Belum ada penjualan tercatat.</div>';
+  else top.forEach(id=>{ const p = products.find(x=>x.id===id); if(p) out.innerHTML += `<div class="small muted">${escape(p.title)} — ${soldCount[id]} terjual</div>`; });
+}
+
+/* record sale quick */
+function recordSale(productId){
+  const qty = Number(prompt('Jumlah terjual?',1));
+  if(!qty || qty<=0) return;
+  const p = products.find(x=>x.id===productId);
+  if(!p) return alert('Produk tidak ditemukan');
+  if(p.stock < qty) return alert('Stok tidak mencukupi');
+  p.stock -= qty;
+  sales.push({id:'s'+Math.random().toString(36).slice(2,8), productId:p.id, qty:qty, price:p.price, at:Date.now()});
+  saveAll();
+  alert('Penjualan tercatat.');
+  closeModal();
+  renderAdminStats();
+  renderCatalog();
+}
+
+/* init */
+populateCategories();
+renderCatalog();
+
+/* expose for inline */
+window.openProductForm = openProductForm;
+window.openAdmin = openAdmin;
+window.navigate = navigate;
+window.navigateById = navigateById;
+window.renderCatalog = renderCatalog;
+window.resetFilters = resetFilters;
+
+</script>
+</body>
+</html>
